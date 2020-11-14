@@ -4,7 +4,17 @@ A small app mainly for testing purposes using NestJS with GraphQL.
 
 # To set up
 
-You need a Postgresql server running on your machine. For the database name and other data required, see the [app module file](./src/app.module.ts)
+You need a Postgresql server running on your machine.
+For the database configurations for local development, you will need to create configuration file `.env` in the root of this repository with the following content:
+
+```
+DATABASE=XXXXX
+DATABASE_USER=XXXXX
+DATABASE_PASSWORD=XXXXX
+DATABASE_HOST=localhost
+DATABASE_PORT=XXXX
+
+```
 
 Run `npm i` to install all the packages.
 
