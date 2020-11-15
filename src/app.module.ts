@@ -4,9 +4,11 @@ import { GraphQLModule } from '@nestjs/graphql';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
+    ProductModule,
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',
     }),
