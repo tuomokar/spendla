@@ -7,7 +7,7 @@ export class InitialMigration1605386989896 implements MigrationInterface {
           "id" uuid PRIMARY KEY NOT NULL DEFAULT uuid_generate_v4(), 
           "name" character varying(300) NOT NULL, 
           "created_at" TIMESTAMP NOT NULL DEFAULT now(), 
-          "updated_at" TIMESTAMP NOT NULL DEFAULT NOW()
+          "updated_at" TIMESTAMP NOT NULL DEFAULT now()
         )`,
     );
   }
