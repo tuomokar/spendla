@@ -45,5 +45,7 @@ Run `npm i` to install all the packages.
 
 ## Other
 
-- `npm run migration:generate ExampleMigrationName`
-  - Generate a new migration
+- `npm run migration:create ExampleMigrationName`
+  - Create a new migration
+- `npx typeorm-model-generator`
+  - Generate models from the database. Note that you must add `@ObjectType` to the model class and `@Field` to its fields
