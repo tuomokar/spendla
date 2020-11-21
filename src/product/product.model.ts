@@ -10,7 +10,7 @@ import { ObjectType, Field } from '@nestjs/graphql';
 
 @ObjectType()
 @Entity('product')
-export class ProductModel {
+export class Product {
   @Field()
   @PrimaryGeneratedColumn('uuid')
   id: string;

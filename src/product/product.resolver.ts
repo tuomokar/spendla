@@ -2,24 +2,24 @@ import { Resolver, Args, Query, Mutation } from '@nestjs/graphql';
 import { Inject } from '@nestjs/common';
 
 import { ProductService } from './product.service';
-import { ProductModel } from './product.model';
+import { Product } from './product.model';
 
-@Resolver(ProductModel)
+@Resolver(Product)
 export class ProductResolver {
   constructor(@Inject(ProductService) private productService: ProductService) {}
 
-  @Query(() => ProductModel)
-  async product(@Args('id') id: string): Promise<ProductModel> {
+  @Query(() => Product)
+  async product(@Args('id') id: string): Promise<Product> {
     return await this.productService.findOne(id);
   }
 
-  @Query(() => [ProductModel])
-  async products(): Promise<ProductModel[]> {
+  @Query(() => [Product])
+  async products(): Promise<Product[]> {
     return await this.productService.findAll();
   }
 
-  @Mutation(() => ProductModel)
-  async createProduct(@Args('name') name: string): Promise<ProductModel> {
+  @Mutation(() => Product)
+  async createProduct(@Args('name') name: string): Promise<Product> {
     return await this.productService.create({ name });
   }
 }
