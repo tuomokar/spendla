@@ -11,7 +11,6 @@ For the database configurations for local development, you will need to create c
 
 ```
 TYPEORM_CONNECTION = postgres
-TYPEORM_SYNCHRONIZE = false
 TYPEORM_HOST = localhost
 TYPEORM_ENTITIES = dist/**/*.model.js
 TYPEORM_MIGRATIONS = dist/database/migrations/*.js

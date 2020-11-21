@@ -24,13 +24,13 @@ import { ProductModule } from './product/product.module';
         password: configService.get('TYPEORM_PASSWORD'),
         database: configService.get('TYPEORM_DATABASE'),
         // TODO: might be worth creating a ConfigService of our own. There will probably be need to do some more customizations for
-        // tests. Now the e2e tests are ran against the development database, but it'd be better if they had a dedicated test database 
+        // tests. Now the e2e tests are ran against the development database, but it'd be better if they had a dedicated test database
         // that we could create and drop easily
         entities:
           process.env.NODE_ENV === 'test'
             ? ['src/**/*.model.ts']
             : [configService.get('TYPEORM_ENTITIES')],
-        synchronize: configService.get('TYPEORM_SYNCHRONIZE', false),
+        synchronize: false,
       }),
     }),
   ],
