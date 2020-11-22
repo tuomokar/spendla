@@ -1,5 +1,6 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { Column, Entity, Index, OneToMany } from 'typeorm';
+import { BeforeInsert, Column, Entity, Index, OneToMany } from 'typeorm';
+import { hash } from 'bcrypt';
 
 import { Receipt } from '../receipt/receipt.model';
 
@@ -44,4 +45,9 @@ export class UserAccount {
   @Field(() => [Receipt])
   @OneToMany(() => Receipt, (receipt) => receipt.creator)
   receipts: Receipt[];
+
+  @BeforeInsert()
+  async hashPassword() {
+    this.password = await hash(this.password, 10);
+  }
 }
