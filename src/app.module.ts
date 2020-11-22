@@ -7,6 +7,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ProductModule } from './product/product.module';
 import { ReceiptModule } from './receipt/receipt.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { ReceiptModule } from './receipt/receipt.module';
         synchronize: false,
       }),
     }),
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],

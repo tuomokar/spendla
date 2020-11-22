@@ -1,7 +1,15 @@
-import { Column, Entity, Index, OneToMany } from 'typeorm';
+import {
+  Column,
+  Entity,
+  Index,
+  OneToMany,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 import { ObjectType, Field } from '@nestjs/graphql';
 
 import { Product } from '../product/product.model';
+import { UserAccount } from '../user/user.model';
 
 @ObjectType()
 @Index('receipt_pkey', ['id'], { unique: true })
@@ -32,4 +40,8 @@ export class Receipt {
   @Field(() => [Product])
   @OneToMany(() => Product, (product) => product.receipt)
   products: Product[];
+
+  @ManyToOne(() => UserAccount, (userAccount) => userAccount.receipts)
+  @JoinColumn([{ name: 'creator', referencedColumnName: 'id' }])
+  creator: UserAccount;
 }
