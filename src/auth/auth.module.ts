@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
-
 import { JwtModule } from '@nestjs/jwt';
+
 import { UserModule } from '../user/user.module';
 import { AuthService } from './auth.service';
 import { LocalStrategy } from './local.strategy';
+import { JwtStrategy } from './jwt.strategy';
 import { TEMP_JWT_TOKEN_SECRET } from './temp-jwt-token-secret';
 
 // todo: Bring a proper secret from a configuration service
@@ -17,7 +18,7 @@ import { TEMP_JWT_TOKEN_SECRET } from './temp-jwt-token-secret';
       signOptions: { expiresIn: '30s' }, // TODO: change this value
     }),
   ],
-  providers: [AuthService, LocalStrategy],
+  providers: [AuthService, LocalStrategy, JwtStrategy],
   exports: [AuthService],
 })
 export class AuthModule {}
