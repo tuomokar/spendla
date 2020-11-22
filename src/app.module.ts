@@ -34,6 +34,8 @@ import { UserModule } from './user/user.module';
             ? ['src/**/*.model.ts']
             : [configService.get('TYPEORM_ENTITIES')],
         synchronize: false,
+        // TODO: once we can run the e2e tests in isolated environment, this won't be needed
+        keepConnectionAlive: process.env.NODE_ENV === 'test',
       }),
     }),
     AuthModule,
