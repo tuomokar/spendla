@@ -6,9 +6,11 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ProductModule } from './product/product.module';
+import { ReceiptModule } from './receipt/receipt.module';
 
 @Module({
   imports: [
+    ReceiptModule,
     ProductModule,
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',

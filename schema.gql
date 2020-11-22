@@ -25,6 +25,8 @@ type Product {
 type Query {
   product(id: String!): Product!
   products: [Product!]!
+  receipt(id: String!): Receipt!
+  receipts: [Receipt!]!
 }
 
 type Mutation {
