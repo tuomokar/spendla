@@ -4,7 +4,9 @@ A small app mainly for testing purposes using NestJS with GraphQL.
 
 [NestJS documentation](https://nestjs.com/).
 
-# To set up
+## To set up
+
+### Database and its configuration
 
 You need a Postgresql server running on your machine.
 For the database configurations for local development, you will need to create configuration file `ormconfig.env` in the root of this repository with the following content (replace the XXXXX with your own content):
@@ -20,6 +22,18 @@ TYPEORM_PASSWORD = XXXXX
 TYPEORM_DATABASE = XXXXX
 TYPEORM_PORT = XXXXX
 ```
+
+### Jwt secret
+
+You need to have a file named `temp-jwt-token-secret.ts` in `src/auth` with content:
+
+```
+export const TEMP_JWT_TOKEN_SECRET = '<someJwtSecretKeyHere>';
+```
+
+Note that is temporary. Later on the jwt secret will be taken through some other means.
+
+### Installing packages
 
 Run `npm i` to install all the packages.
 

@@ -2,11 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Receipt {
+type UserDto {
   id: String!
+  username: String!
+  email: String!
   createdAt: DateTime!
   updatedAt: DateTime!
-  products: [Product!]!
 }
 
 """
@@ -22,12 +23,11 @@ type Product {
   receipt: Receipt!
 }
 
-type UserDto {
+type Receipt {
   id: String!
-  username: String!
-  email: String!
   createdAt: DateTime!
   updatedAt: DateTime!
+  products: [Product!]!
 }
 
 type Query {

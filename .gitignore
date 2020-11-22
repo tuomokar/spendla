@@ -35,3 +35,6 @@ lerna-debug.log*
 
 # Database/TypeORM configuration
 ormconfig.env
+
+# Temporary jwt token secret. Move to an environment variable or something later on.
+src/auth/temp-jwt-token-secret.ts
