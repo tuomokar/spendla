@@ -22,6 +22,14 @@ type Product {
   receipt: Receipt!
 }
 
+type UserDto {
+  id: String!
+  username: String!
+  email: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 type Query {
   product(id: String!): Product!
   products: [Product!]!
@@ -31,4 +39,5 @@ type Query {
 
 type Mutation {
   createProduct(name: String!): Product!
+  registerUser(password: String!, email: String!, username: String!): UserDto!
 }
