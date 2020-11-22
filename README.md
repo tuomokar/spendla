@@ -50,7 +50,7 @@ Run `npm i` to install all the packages.
 
 ## Testing
 
-- `npm run test`
+- `npm test`
   - Run unit tests
 - `npm run test:e2e`
   - Run the end to end test

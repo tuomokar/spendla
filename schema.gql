@@ -2,19 +2,6 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type UserDto {
-  id: String!
-  username: String!
-  email: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-}
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
-
 type Product {
   id: String!
   name: String!
@@ -23,11 +10,24 @@ type Product {
   receipt: Receipt!
 }
 
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Receipt {
   id: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   products: [Product!]!
+}
+
+type UserDto {
+  id: String!
+  username: String!
+  email: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type Query {
