@@ -1,31 +1,39 @@
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  CreateDateColumn,
-  UpdateDateColumn,
-} from 'typeorm';
-
+import { Index, JoinColumn, ManyToOne, Entity, Column } from 'typeorm';
 import { ObjectType, Field } from '@nestjs/graphql';
+import { Receipt } from '../receipt/receipt.model';
 
 @ObjectType()
-@Entity('product')
+@Index('product_pkey', ['id'], { unique: true })
+@Entity('product', { schema: 'public' })
 export class Product {
   @Field()
-  @PrimaryGeneratedColumn('uuid')
+  @Column('uuid', {
+    primary: true,
+    name: 'id',
+    default: () => 'uuid_generate_v4()',
+  })
   id: string;
 
   @Field()
-  @Column({ length: 300, nullable: false })
+  @Column('character varying', { name: 'name', length: 300 })
   name: string;
 
   @Field()
-  @Column()
-  @CreateDateColumn()
-  created_at: Date;
+  @Column('timestamp without time zone', {
+    name: 'created_at',
+    default: () => 'now()',
+  })
+  createdAt: Date;
 
   @Field()
-  @Column()
-  @UpdateDateColumn()
-  updated_at: Date;
+  @Column('timestamp without time zone', {
+    name: 'updated_at',
+    default: () => 'now()',
+  })
+  updatedAt: Date;
+
+  @Field(() => Receipt)
+  @ManyToOne(() => Receipt, (receipt) => receipt.products)
+  @JoinColumn([{ name: 'receipt_id', referencedColumnName: 'id' }])
+  receipt: Receipt;
 }
